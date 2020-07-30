@@ -18,11 +18,12 @@ import {
 
 import {
   Header,
-  LearnMoreLinks,
   Colors,
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+
+import LearnMorePages from './tutorials/components/LearnMorePages'
 
 export default function HomePage({navigation}) {
     const styles = StyleSheet.create({
@@ -102,7 +103,7 @@ export default function HomePage({navigation}) {
                 Read the docs to discover what to do next:
               </Text>
             </View>
-            <LearnMoreLinks navigation={navigation}/>
+            <LearnMorePages navigation={navigation}/>
           </View>
         </ScrollView>
       </SafeAreaView>

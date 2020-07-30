@@ -44,7 +44,7 @@ const links = [
     title: 'Layout',
     link: 'https://reactnative.dev/docs/flexbox',
     description: 'React Native uses flexbox for layout, learn how it works.',
-    navigationPage: 'FlexTutorial',
+    navigationPage: 'LayoutPlayground',
   },
   {
     id: 4,
