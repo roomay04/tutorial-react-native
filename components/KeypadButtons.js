@@ -2,15 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Colors from './Colors';
 
-export default KeypadButtons = ( {onPress} ) => {
-    const buttons = [
-        ['CLEAR', 'DEL'],
-        ['7', '8', '9', '÷'],
-        ['4', '5', '6', 'x'],
-        ['1', '2', '3', '+'],
-        ['.', '0', '=','-']
-      ]
-
+export default KeypadButtons = ( {onPress, buttons} ) => {
     return (
         <View style={styles.container}>
             {
@@ -49,7 +41,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: Colors.lighter,
         borderWidth: 1,
-        borderColor: Colors.dark,
+        borderColor: Colors.white,
         alignItems: 'center',
     },
     text:{

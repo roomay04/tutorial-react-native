@@ -8,16 +8,29 @@ export default CalculatorPages = () => {
 
     const onPress = function (text) {
         setResultText(text);
+        switch (text){
+            case buttons[0][1]:
+
+        }
     }
-    
+
+    const buttons = [
+        ['CLEAR', 'DEL'],
+        ['7', '8', '9', '÷'],
+        ['4', '5', '6', 'x'],
+        ['1', '2', '3', '+'],
+        ['.', '0', '=','-']
+      ]
+
     return (
         <View style={styles.container}>
+            <View style={styles.contHistory}><Text>History</Text></View>
             <View style={styles.contResult}> 
                 <Text style={styles.resultText}>{resultText}</Text>
             </View>
 
             <View style={styles.contButtons}>
-                <KeypadButtons onPress={onPress} />
+                <KeypadButtons onPress={onPress} buttons={buttons} />
             </View>
         </View>
     )
@@ -28,8 +41,11 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
     },
+    contHistory: {
+        flex: 2
+    },
     contResult: {
-        flex: 3,
+        flex: 1,
         backgroundColor: Colors.light,
         justifyContent: 'flex-end',
         alignItems: 'flex-end',
