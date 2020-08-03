@@ -24,7 +24,7 @@ export default HistoryView = () => {
                 history.map((item, index) => (
                     <View key={index} style={styles.historyItem}>
                         <Text style={styles.operationText}>{item.operation}</Text>
-                        <Text style={styles.resultText}>={item.result}</Text>
+                        <Text style={styles.resultText}>= {item.result}</Text>
                     </View>)
                 )
             }
@@ -39,20 +39,21 @@ styles = StyleSheet.create({
     },
     historyItem:{
         height: 50,
-        borderTopWidth: 2,
+        borderTopWidth: 1,
         borderTopColor: Colors.dark,
-        marginRight: 10,
-        marginLeft: 10,
+        marginRight: 15,
+        marginLeft: 15,
         padding: 5,
     },
     operationText:{
         flex:1,
-        fontSize: 13,
+        fontSize: 18,
         alignSelf: 'flex-end',
     },
     resultText:{
         flex:1,
         fontSize: 18,
         alignSelf: 'flex-end',
+        color: Colors.light,
     }
 })

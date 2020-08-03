@@ -123,7 +123,8 @@ const styles = StyleSheet.create({
     contResult: {
         flex: 2,
         backgroundColor: Colors.white,
-
+        padding:10,
+        borderTopWidth:1,
         justifyContent: 'flex-end',
         alignItems: 'flex-end',
     },
