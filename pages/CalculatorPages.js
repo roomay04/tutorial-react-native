@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import Colors from '../components/Colors'
 import KeypadButtons from '../components/KeypadButtons';
+import axios from 'axios';
 
 const initialResult = '0'
 
@@ -10,6 +11,17 @@ export default CalculatorPages = () => {
     let [history, setHistory] = useState([]);
     let [onRestart, setOnRestart] = useState(true);
 
+    useEffect( () => {
+        const fetchData = async () => {
+            const result = await axios.get(
+                'https://run.mocky.io/v3/e2f08553-f21e-4c08-8386-2d51d03a019c'
+            )
+
+            setHistory(result.data);
+        }
+        fetchData();
+    },[])
+    
     const buttons = [
         ['CLEAR', 'DEL', '÷'],
         ['7', '8', '9', 'x'],
