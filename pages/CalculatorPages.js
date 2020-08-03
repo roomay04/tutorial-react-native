@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import KeypadButton from '../components/KeypadButton';
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native';
+import Colors from '../components/Colors'
 
 export default CalculatorPages = () => {
     let [resultText, setResultText] = useState(0);
@@ -11,7 +12,12 @@ export default CalculatorPages = () => {
 
     return (
         <View style={styles.container}>
-            <KeypadButton onPress={onPressNumber} textButton={1} />
+            <View style={styles.contResult}> 
+            </View>
+
+            <View style={styles.contButtons}>
+
+            </View>
         </View>
     )
 }
@@ -19,6 +25,16 @@ export default CalculatorPages = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        flexDirection: 'row',
+        flexDirection: 'column',
+    },
+    contResult: {
+        flex: 3,
+        backgroundColor: Colors.light,
+        justifyContent: 'flex-end',
+    },
+    contButtons: {
+        flex: 7,
+        alignItems: 'stretch',
+        backgroundColor: Colors.lighter,
     }
 })
