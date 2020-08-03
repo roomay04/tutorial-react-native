@@ -3,9 +3,12 @@ import { View, StyleSheet, Text } from 'react-native';
 import Colors from '../components/Colors'
 import KeypadButtons from '../components/KeypadButtons';
 
+const initialResult = '0'
+
 export default CalculatorPages = () => {
-    let [resultText, setResultText] = useState('0');
+    let [resultText, setResultText] = useState(initialResult);
     let [history, setHistory] = useState([]);
+    let [onRestart, setOnRestart] = useState(true);
 
     const buttons = [
         ['CLEAR', 'DEL', '÷'],
@@ -18,16 +21,18 @@ export default CalculatorPages = () => {
     const onPress = function (value) {
         if (!isNaN(value) || value == '.'){
             concatToResult(value)
-        }else{
+        }
+        else{
             switch (value){
                 case buttons[0][0]:
-                    setResultText('0');
+                    setResultText(initialResult);
                     break;
                 case buttons[0][1]:
                     replaceLastIndex("");
                     break;
                 case buttons[4][2]:
                     evaluate(value);
+                    setOnRestart(true);
                     break;
                 default:
                     let strLastChar = resultText.slice(-1);
@@ -42,8 +47,8 @@ export default CalculatorPages = () => {
     }
 
     const convertToMathExpression = (value) => {
-        let strTemp = value.replace(new RegExp(escapeRegExp(buttons[1][3]), 'g'), '/');
-        strTemp = strTemp.replace(new RegExp(escapeRegExp(buttons[2][3]), 'g'), '*');
+        let strTemp = value.replace(new RegExp(escapeRegExp(buttons[0][2]), 'g'), '/');
+        strTemp = strTemp.replace(new RegExp(escapeRegExp(buttons[1][3]), 'g'), '*');
         return strTemp;
     }
 
@@ -52,8 +57,19 @@ export default CalculatorPages = () => {
     }
 
     const concatToResult = (value) => {
-        if (resultText == '0'){
-            setResultText(value);
+        if (onRestart){
+            if (!isNaN(value)){
+                setResultText(value);
+            }else{
+                setResultText(resultText+value);
+            }
+            setOnRestart(false);
+        }else if (resultText == initialResult){
+            if (value == buttons[0][2] || value == buttons[1][3]){
+                alert("Can't start with operations!");
+            }else{
+                setResultText(value);
+            }
         }else{
             setResultText(resultText+value);
         }
@@ -61,7 +77,11 @@ export default CalculatorPages = () => {
 
     const replaceLastIndex = (value) => {
         var str1 = resultText.replace(/.$/,value)
-        setResultText(str1)
+        if (str1 != ""){
+            setResultText(str1);
+        }else{
+            setResultText(initialResult);
+        }
     }
 
     const evaluate = () => {
@@ -97,20 +117,22 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
     },
     contHistory: {
-        flex: 2
+        flex: 3
     },
     contResult: {
-        flex: 1,
-        backgroundColor: Colors.light,
+        flex: 2,
+        backgroundColor: Colors.white,
+
         justifyContent: 'flex-end',
         alignItems: 'flex-end',
     },
     contButtons: {
-        flex: 7,
+        flex: 6,
         alignItems: 'stretch',
         backgroundColor: Colors.lighter,
     },
     resultText:{
-        fontSize: 50,
+        fontSize: 35,
+        fontFamily: 'Helvetica-Light',
     }
 })
