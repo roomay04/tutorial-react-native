@@ -12,6 +12,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomePage from './HomePage';
 import MyPager from './tutorials/components/scrollView/ScrollView1';
 import LayoutPlayground from './tutorials/components/layout/LayoutPlayground';
+import CalculatorPage from './pages/CalculatorPages'
 
 const App = () => {
   const Stack = createStackNavigator();
@@ -23,6 +24,7 @@ const App = () => {
           <Stack.Screen name="Home" component={HomePage} options={{ title: 'Welcome' }}/>
           <Stack.Screen name="FlexTutorial" component={MyPager} options={{ title: 'Tutorial Flex' }}/>
           <Stack.Screen name="LayoutPlayground" component={LayoutPlayground} options={{ title: 'Layout Playground' }}/>
+          <Stack.Screen name="Calculator" component={CalculatorPage} options={{ title: 'Calculator' }}/>
         </Stack.Navigator>
       </NavigationContainer>
     </>

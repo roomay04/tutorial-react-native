@@ -84,6 +84,13 @@ const links = [
       'Stay in touch with the community, join in on Q&As and more by following React Native on Twitter.',
     navigationPage: 'FlexTutorial',
   },
+  {
+    id: 9,
+    title: 'Demo',
+    link: 'https://reactnative.dev/docs/tutorial',
+    description: 'Calculator Apps',
+    navigationPage: 'Calculator',
+  },
 ];
 
 const LinkList = ({navigation}): Node => (
