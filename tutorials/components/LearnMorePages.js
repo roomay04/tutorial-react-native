@@ -26,16 +26,9 @@ const Colors = {
 const links = [
   {
     id: 1,
-    title: 'Demo UI',
+    title: 'Demo App',
     link: 'https://reactnative.dev/docs/tutorial',
-    description: 'Calculator Apps: using hooks, TouchableOpacity, Multicomponent',
-    navigationPage: 'Calculator',
-  },
-  {
-    id: 2,
-    title: 'Demo using API',
-    link: 'https://reactnative.dev/docs/tutorial',
-    description: 'Calculator Apps',
+    description: 'Calculator Apps: using hooks, TouchableOpacity, Multicomponent, Fetch API',
     navigationPage: 'Calculator',
   },
   {
@@ -46,7 +39,7 @@ const links = [
     navigationPage: 'FlexTutorial',
   },
   {
-    id: 10,
+    id: 2,
     title: 'Style',
     link: 'https://reactnative.dev/docs/style',
     description:
