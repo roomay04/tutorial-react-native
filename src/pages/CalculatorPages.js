@@ -3,12 +3,14 @@ import { View, StyleSheet, Text } from 'react-native';
 import Colors from '../components/Colors'
 import KeypadButtons from '../components/KeypadButtons';
 import HistoryView from '../components/HistoryView';
+import { historyAdded } from '../reducers/HistorySlice'
+import { useDispatch } from 'react-redux';
 
 const initialResult = '0'
 
 export default CalculatorPages = () => {
+    const dispatch = useDispatch();
     let [resultText, setResultText] = useState(initialResult);
-    let [history, setHistory] = useState([]);
     let [onRestart, setOnRestart] = useState(true);
     
     const buttons = [
@@ -90,11 +92,13 @@ export default CalculatorPages = () => {
         if(isNaN(strCurOutput)){
             let dEval = eval(convertToMathExpression(resultText));
     
-            let aHistory = [...history];
-            aHistory.push([strCurOutput, dEval])
+            let history = {
+                operation: strCurOutput,
+                result: dEval
+            }
     
             setResultText(''+dEval);
-            setHistory(aHistory);
+            dispatch(historyAdded(history))
         }
     }
 

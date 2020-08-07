@@ -7,12 +7,14 @@
  */
 
 import React from 'react';
+import { Provider } from 'react-redux';
+import store from './src/store';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import HomePage from './HomePage';
-import MyPager from './tutorials/components/scrollView/ScrollView1';
-import LayoutPlayground from './tutorials/components/layout/LayoutPlayground';
-import CalculatorPage from './pages/CalculatorPages'
+import HomePage from './src/pages/HomePage';
+import MyPager from './src/tutorials/components/scrollView/ScrollView1';
+import LayoutPlayground from './src/tutorials/components/layout/LayoutPlayground';
+import CalculatorPage from './src/pages/CalculatorPages'
 
 const App = () => {
   const Stack = createStackNavigator();
@@ -20,12 +22,14 @@ const App = () => {
   return (
     <>
       <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Home" component={HomePage} options={{ title: 'Welcome' }}/>
-          <Stack.Screen name="FlexTutorial" component={MyPager} options={{ title: 'Tutorial Flex' }}/>
-          <Stack.Screen name="LayoutPlayground" component={LayoutPlayground} options={{ title: 'Layout Playground' }}/>
-          <Stack.Screen name="Calculator" component={CalculatorPage} options={{ title: 'Calculator' }}/>
-        </Stack.Navigator>
+        <Provider store={store}>
+          <Stack.Navigator>
+            <Stack.Screen name="Home" component={HomePage} options={{ title: 'Welcome' }}/>
+            <Stack.Screen name="FlexTutorial" component={MyPager} options={{ title: 'Tutorial Flex' }}/>
+            <Stack.Screen name="LayoutPlayground" component={LayoutPlayground} options={{ title: 'Layout Playground' }}/>
+            <Stack.Screen name="Calculator" component={CalculatorPage} options={{ title: 'Calculator' }}/>
+          </Stack.Navigator>
+        </Provider>
       </NavigationContainer>
     </>
   );
