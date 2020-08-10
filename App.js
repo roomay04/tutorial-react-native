@@ -12,8 +12,8 @@ import store from './src/store';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomePage from './src/pages/HomePage';
-import MyPager from './src/tutorials/components/scrollView/ScrollView1';
-import LayoutPlayground from './src/tutorials/components/layout/LayoutPlayground';
+import MyPager from './src/components/tutorial/scrollView/ScrollView1';
+import LayoutPlayground from './src/components/tutorial/layout/LayoutPlayground';
 import CalculatorPage from './src/pages/CalculatorPages'
 
 const App = () => {

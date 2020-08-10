@@ -4,7 +4,7 @@ import { ScrollView, State } from 'react-native-gesture-handler';
 import Colors from './Colors';
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
-import { historyReset, fetchHistory } from '../reducers/HistorySlice';
+import { historyReset, fetchHistory } from '../../reducers/HistorySlice';
 
 export default HistoryView = () => {
     const dispatch = useDispatch();

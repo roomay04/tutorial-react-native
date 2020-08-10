@@ -23,7 +23,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import LearnMorePages from '../tutorials/components/LearnMorePages'
+import LearnMorePages from './LearnMorePages'
 
 export default function HomePage({navigation}) {
     const styles = StyleSheet.create({

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
-import Colors from '../components/Colors'
-import KeypadButtons from '../components/KeypadButtons';
-import HistoryView from '../components/HistoryView';
+import Colors from '../components/calculator/Colors'
+import KeypadButtons from '../components/calculator/KeypadButtons';
+import HistoryView from '../components/calculator/HistoryView';
 import { historyAdded } from '../reducers/HistorySlice'
 import { useDispatch } from 'react-redux';
 
